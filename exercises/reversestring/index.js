@@ -11,7 +11,7 @@ function reverse(str) {
   return str.split("").reduce((rev, char) => char + rev, "");
 }
 
-reverse("asdf");
+
 
 // (3) solution adding letter to start of string
 // function reverse(str) {
