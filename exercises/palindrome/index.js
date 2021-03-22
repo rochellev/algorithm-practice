@@ -7,20 +7,25 @@
 //   palindrome("abba") === true
 //   palindrome("abcdefg") === false
 
-// (1) my solution
+// (2) no manual reverse, make use of arr every() prototype
+// do boolean check on every element in array
+// not ideal, extra comparisons
 function palindrome(str) {
-  let reversed = str
-    .split("")
-    .reverse()
-    .join("");
-
-  return reversed === str ? true : false;
+ return str.split('').every((char, currIndex) =>{
+    return char === str[str.length - currIndex - 1]
+  })
 }
 
-
-// (2)
+// (1) my solution --- what stephen came up with! yay
 // function palindrome(str) {
+//   let reversed = str
+//     .split("")
+//     .reverse()
+//     .join("");
 
+//   return reversed === str ? true : false;
 // }
+
+
 
 module.exports = palindrome;
