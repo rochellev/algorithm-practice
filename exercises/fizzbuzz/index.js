@@ -19,6 +19,8 @@ function fizzBuzz(n) {
   for (let i = 1; i <= n; i++) {
     let isFizz = i % 3 === 0 ? true : false;
     let isBuzz = i % 5 === 0 ? true : false;
+    // can do multiple 15 since only a number
+    // that's multiple of 15 is also multiple of 3 and 5
     if (isFizz && isBuzz) {
       console.log(fizz + buzz);
     } else if (isFizz) {
