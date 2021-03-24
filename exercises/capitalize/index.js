@@ -7,6 +7,21 @@
 //   capitalize('a lazy fox') --> 'A Lazy Fox'
 //   capitalize('look, it is working!') --> 'Look, It Is Working!'
 
-function capitalize(str) {}
+// (0) my thing
+// split words, then for each word capitalize first char
+//  then join with rest of word and join back to string
+function capitalize(str) {
+  return str
+    .split(" ")
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
+
+// function capitalize(str) {
+//   // regex: \b --> beginning word /#(\s|^)([a-z0-9-_]+)#i/g
+//   let reg = /(\b[A-Za-z](?!\b))/g
+//   let result = str.replace(reg, (x) => x.charAt(0).toUpperCase() + x.slice(1))
+//   return result.charAt(0).toUpperCase() + result()
+// }
 
 module.exports = capitalize;
