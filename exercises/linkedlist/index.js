@@ -10,6 +10,16 @@ class Node {
   }
 }
 
-class LinkedList {}
+class LinkedList {
+  constructor() {
+    this.head = null;
+  }
+
+  // Creates a new Node from argument 'data'
+  // assigns the resulting node to the 'head' property.
+  insertFirst(data) {
+    this.head = new Node(data, this.head);
+  }
+}
 
 module.exports = { Node, LinkedList };
