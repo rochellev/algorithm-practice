@@ -57,11 +57,32 @@ class LinkedList {
   // Removes only the first node of the linked list
   // The list's head should now be the second element.
   removeFirst() {
+    if (!this.head) {
+      return;
+    }
     this.head = this.head.next;
   }
 
   // Removes the last node of the chain
   removeLast() {}
+
+  // 	Inserts a new node with provided data at the end of the chain
+  insertLast(data) {}
+
+  // Returns the node at the provided index
+  getAt(i) {}
+
+  // Removes node at the provided index
+  removeAt(i) {}
+
+  // Create an insert a new node at provided index
+  // If index is out of bounds, add the node to the end of the list.
+  insertAt(data, i){}
+
+  // 	Calls the provided function with every node of the chain
+  forEach(fn){
+
+  }
 }
 
 module.exports = { Node, LinkedList };
