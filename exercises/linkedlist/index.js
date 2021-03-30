@@ -122,7 +122,27 @@ class LinkedList {
 
   // Create an insert a new node at provided index
   // If index is out of bounds, add the node to the end of the list.
-  insertAt(data, i) {}
+  insertAt(data, i) {
+    // list empty
+    if (!this.head) {
+      this.head = new Node(data);
+      return;
+    }
+    if (i === 0) {
+      this.insertFirst(data);
+      return;
+    }
+    const previous = this.getAt(i - 1) || this.getLast();
+    previous.next = new Node(data, previous.next);
+
+    // let previousNode = this.getAt(i - 1);
+    // if (!previousNode || !previousNode.next) {
+    //   this.insertLast(data);
+    //   return;
+    // }
+    // previousNode.next = new Node(data, previousNode.next)
+    return;
+  }
 
   // 	Calls the provided function with every node of the chain
   forEach(fn) {}
