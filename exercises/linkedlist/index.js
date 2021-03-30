@@ -79,10 +79,29 @@ class LinkedList {
   }
 
   // 	Inserts a new node with provided data at the end of the chain
-  insertLast(data) {}
+  insertLast(data) {
+    const lastNode = this.getLast();
+    if (lastNode) {
+      lastNode.next = new Node(data);
+    } else {
+      this.head = new Node(data);
+    }
+  }
 
   // Returns the node at the provided index
-  getAt(i) {}
+  // note: zero indexed
+  getAt(i) {
+    let node = this.head;
+    let counter = 0;
+    while (node) {
+      if (counter === i) {
+        return node;
+      }
+      counter++;
+      node = node.next;
+    }
+    return null;
+  }
 
   // Removes node at the provided index
   removeAt(i) {}
