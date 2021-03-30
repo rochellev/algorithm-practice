@@ -15,11 +15,25 @@ class LinkedList {
     this.head = null;
   }
 
-  // Creates a new Node from argument 'data'
+  // Creates a new Node from argument 'data',
   // assigns the resulting node to the 'head' property.
   insertFirst(data) {
     this.head = new Node(data, this.head);
   }
+
+  // Returns the number of nodes in the linked list.
+  size() {
+    let count = 0;
+    let nextNode = this.head;
+    while (nextNode) {
+      count++;
+      nextNode = nextNode.next;
+    }
+    return count;
+  }
+  
+  // Returns the first node of the linked list.
+  getFirst() {}
 }
 
 module.exports = { Node, LinkedList };
