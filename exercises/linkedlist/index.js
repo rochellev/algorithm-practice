@@ -104,7 +104,21 @@ class LinkedList {
   }
 
   // Removes node at the provided index
-  removeAt(i) {}
+  removeAt(i) {
+    if (!this.head) {
+      return;
+    }
+    // trying to remove first element
+    if (i == 0) {
+      this.head = this.head.next;
+      return;
+    }
+    let previousNode = this.getAt(i - 1);
+    if (!previousNode || !previousNode.next) {
+      return;
+    }
+    previousNode.next = previousNode.next.next;
+  }
 
   // Create an insert a new node at provided index
   // If index is out of bounds, add the node to the end of the list.
