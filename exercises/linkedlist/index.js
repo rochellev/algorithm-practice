@@ -19,6 +19,7 @@ class LinkedList {
   // assigns the resulting node to the 'head' property.
   insertFirst(data) {
     this.head = new Node(data, this.head);
+    // this.insertAt(data, 0)
   }
 
   // Returns the number of nodes in the linked list.
@@ -145,7 +146,28 @@ class LinkedList {
   }
 
   // 	Calls the provided function with every node of the chain
-  forEach(fn) {}
+  forEach(fn) {
+    if(!this.head){
+      return
+    }
+    let counter = 0;
+    let currNode = this.head;
+    while(currNode){
+      fn(currNode, counter);
+      currNode = currNode.next;
+      counter++;
+    }
+    return;
+  }
+  // Linked list should be compatible as the subject of a 'for...of' loop
+//  using generator, yield each node 
+  *[Symbol.iterator](){
+    let node = this.head;
+    while(node){
+      yield node;
+      node = node.next;
+    }
+  }
 }
 
 module.exports = { Node, LinkedList };
