@@ -31,9 +31,37 @@ class LinkedList {
     }
     return count;
   }
-  
+
   // Returns the first node of the linked list.
-  getFirst() {}
+  getFirst() {
+    return this.head;
+  }
+
+  // Returns the last node of the linked list
+  getLast() {
+    if (!this.head) {
+      return null;
+    }
+    let lastNode = this.head;
+    while (lastNode.next) {
+      lastNode = lastNode.next;
+    }
+    return lastNode;
+  }
+
+  // Empties the linked list of any nodes.
+  clear() {
+    this.head = null;
+  }
+
+  // Removes only the first node of the linked list
+  // The list's head should now be the second element.
+  removeFirst() {
+    this.head = this.head.next;
+  }
+
+  // Removes the last node of the chain
+  removeLast() {}
 }
 
 module.exports = { Node, LinkedList };
