@@ -11,6 +11,39 @@
 //    list.insertLast('d');
 //    fromLast(list, 2).data // 'b'
 
-function fromLast(list, n) {}
+// (0) my solutions makes use of getAt(index)
+// the other one uses while loop to get nth node
+// function fromLast(list, n) {
+//   if (n == 0) {
+//     return list.getLast();
+//   }
+//   let slow = list.getFirst();
+//   // advance fast by n
+//   let fast = list.getAt(n);
+//   while (fast.next) {
+//     slow = slow.next;
+//     fast = fast.next;
+//   }
+//   return slow;
+// }
 
+function fromLast(list, n) {
+  if (n == 0) {
+    return list.getLast();
+  }
+  let slow = list.getFirst();
+  let fast = list.getFirst();
+  // advance fast by n
+  while (n > 0) {
+    fast = fast.next;
+    n--;
+  }
+  // advance by one until hit last node
+  while (fast.next) {
+    slow = slow.next;
+    fast = fast.next;
+  }
+  // slow must be n elements behind
+  return slow;
+}
 module.exports = fromLast;
