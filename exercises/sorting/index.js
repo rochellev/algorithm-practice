@@ -38,8 +38,21 @@ function selectionSort(arr) {
 }
 
 // recursive
+// input, split into two, call merge when get one element
+// recursively subdivide arr into two. passing back
+// stop when cant subdivide, len =1
 function mergeSort(arr) {
-  return arr;
+  if (arr.length === 1) {
+    return arr;
+  }
+  // divide into two equal halves
+  const center = Math.floor(arr.length / 2);
+  // not include center index
+  const left = arr.slice(0, center);
+  // starting at center to end of array
+  const right = arr.slice(center);
+  // complexity comes in here
+  return merge(mergeSort(left), mergeSort(right));
 }
 
 // iterative
